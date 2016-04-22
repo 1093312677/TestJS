@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js</title>
+</head>
+<style>
+	p{cursor:help; filter:DropShadow(Color=red,OffX=5,OffY=5,Positive=1);}
+	
+</style>
+<body>
+	<p>hello</p>
+	<div class="">
+	</div>
+	<button onclick="fun()">reload</button>
+	<button onclick="fun1()">baidu</button>
+	<button onclick="fun2()">document</button>
+	<script type="text/javascript">
+	//alert("hello");
+		//window.open("test.html","advertise","width=300px,height=180px,top = 10,left=20");
+		function fun()
+		{
+			var d = new Date();
+			//alert(d.getFullYear()+"/"+d.getMonth()+1);
+			//window.print();
+			location.reload();
+		}
+		function fun1()
+		{
+			location.href="http://www.baidu.com";
+		}
+
+		function fun2()
+		{
+			alert(document.tagName);
+		}
+		//fun();
+	</script>
+</body>
+</html>

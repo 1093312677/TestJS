@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="jquery-2.1.1.min.js" type="text/javascript"></script>  
+<body>
+	<div id="show"></div>
+    <script type="text/javascript">  
+    
+
+         $(document).ready(function(){
+         	$.ajax({
+         		type:"GET",
+         		url:'ajaxPHP.php',
+         		dataType:"json",
+         		data:{
+         			name:"he",
+         			age:20,
+         		},
+         		success: function(msg){
+         			// var jsonp = JSON.parse(msg);
+         			// alert(jsonp[0])
+
+         			var result = new Array();  
+				    result = eval(msg);  
+				    var newhtml ="";  
+				    for(x in result)   
+				    {  
+				        newhtml += result[x]['name']+result[x]['id'];  
+				    }  
+				   
+             		$("#show").html(newhtml);
+           		}, //成功执行方法   
+           		error:function(){
+           			$("#show").html("error");
+           		}
+         	});
+         });
+     </script>
+</body>
+</html>

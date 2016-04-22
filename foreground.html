@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>a</title>
+</head>
+<body>
+
+<!-- php传值给js -->
+	<script type="text/javascript">
+		function get1(name){
+			//var arr = eval('(' + name + ')')
+			var arr = name;
+			document.getElementById("first").innerHTML = arr.firstname;
+		}
+	</script>
+
+	<div id = "first"></div>
+	<script type="text/javascript" src="backstage.php"></script>
+	<!-- <script type="text/javascript" src="http://www.itzhidian.com/all/infor2/backstage.php"></script> -->
+	
+
+<!-- PHP给传值结束js -->
+
+
+
+
+<!-- js传值给PHP开始 -->
+<form name="form1" action="json.php" method="post" onsubmit="json(this)";return false;>
+	<input type="text" name="name"/>
+	<input type="text" name="pw"/>
+	<input type="text" name="test" id="te"/>
+	<input type="submit" value="JSON"/>
+</form>
+
+<script type="text/javascript">
+	function json(o){
+
+		var user={
+			name: document.form1.name.value,
+			pw:document.form1.pw.value
+		}
+		
+		var json_string = JSON.stringify(user);
+		document.getElementById("te").value = json_string;
+		
+		o.submit();
+	}
+</script>
+<script type="text/javascript" src="json2.js"></script>
+<!-- js传值给PHP结束 -->
+
+
+
+
+
+
+
+
+	<script
+	$.ajax({
+		url:'bakstage2.php',
+		type:'GET',
+		dataType:'jsonp',
+		jsonp:'callback',
+		success:function(data){
+		  alert(data);
+		 }
+	});
+	</script>
+	<script type="text/javascript" src="bakstage2.php"></script>
+	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+</body>
+</html>

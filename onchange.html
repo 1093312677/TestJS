@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<select id="name" >
+		<option>33</option>
+		<option>33</option>
+	</select>
+	<button id="button1" onclick='fun()'>button</button>
+	<script type="text/javascript">
+		function fun(){
+				alert("hello");
+		}
+		var name = document.getElementById("button1");
+		name.addEventListener("onclick",fun,false);
+		
+		// window.onload = fun;
+	</script>
+</body>
+</html>

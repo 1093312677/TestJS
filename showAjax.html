@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>show</title>
+</head>
+<body>
+
+
+<form name="form1">
+				<!--time start-->
+				<select name="timeYear" onchange="xml()">
+					<option value="2016">2016</option>
+					<option value="2017">2017</option>
+				</select>
+				
+				<select name="timeMonth">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+				</select>
+			</form>
+				<!--time end-->
+
+
+
+
+
+
+	<script type="text/javascript">
+		
+		function xml(){
+			var xmlHttp;
+			var timeYear = document.form1.timeYear.value;
+			var timeMonth = document.form1.timeMonth.value;
+
+			if(window.ActiveXObject){
+				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}else if(window.XMLHttpRequest){
+				xmlHttp = new XMLHttpRequest();
+			}
+
+
+			xmlHttp.onreadystatechange = function(){
+				if(xmlHttp.readyState == 4){
+					if(xmlHttp.status == 200){
+						document.getElementById("div").innerHTML = xmlHttp.responseText;
+					}
+				}
+			}
+
+			xmlHttp.open("POST","bg.php?timeYear="+timeYear+"&timeMonth="+timeMonth,true);
+			xmlHttp.send();
+		}
+
+
+	</script>
+
+	<button onclick="xml()"> click</button>
+	<div id="div"></div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>add</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 闭包
+		var demo = (function(){
+
+			D = function(a,b){
+				this.a = a;
+				this.b = b;
+			}
+			// 创建对象的方法
+			D.prototype.add = function(){
+				return (this.a+this.b);
+			}
+		})();
+		// 创建对象
+		var d = new D(1,2);
+		
+		alert(d.add());
+	</script>
+</body>
+</html>
